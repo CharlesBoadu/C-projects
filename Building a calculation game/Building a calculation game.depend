@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1621204060 source:e:\learning c++\building a calculation game\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
