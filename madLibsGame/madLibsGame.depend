@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1622067167 source:e:\learning c++\madlibsgame\main.cpp
+	<iostream>
+	<algorithm>
+
