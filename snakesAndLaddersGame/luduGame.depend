@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1622415030 source:e:\learning c++\tetrisgamedevelopment\ludugame\main.cpp
+	<iostream>
+	<algorithm>
+
