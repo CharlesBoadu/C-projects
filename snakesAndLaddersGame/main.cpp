@@ -35,7 +35,7 @@ int main()
     string playerTokenSelected, computerTokenSelected;
 
     //Selecting the player token
-    cout <<"Select your player token -----> 1. Red  2. Blue  3. Green  4. Yellow "<<endl;
+    cout <<"Player tokens available -----> 1. Red  2. Blue  3. Green  4. Yellow "<<endl;
     cout <<"Choose your player token: ";
     cin >>playerToken;
 
@@ -45,7 +45,7 @@ int main()
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout <<"Invalid Response. Input must be an integer!"<<endl;
         cout <<endl;
-        cout <<"Select your player token -----> 1. Red  2. Blue  3. Green  4. Yellow "<<endl;
+        cout <<"Player tokens available -----> 1. Red  2. Blue  3. Green  4. Yellow "<<endl;
         cout <<"Choose your player token: ";
         cin >>playerToken;
      }
@@ -72,38 +72,258 @@ int main()
         cout <<name<<" selects "<<playerTokenSelected<<" token and Computer selects "<<computerTokenSelected<<" token."<<endl;
     }
 
-    char playerDiceRoll, computerDiceRoll;
-    cout <<"<============================= GAME STARTS! ===========================================>"<<endl;
+    char playerDiceRoll;
+    int computerPosition, playerPosition, playerDiceRollNumber, computerDiceRollNumber;
+    computerPosition = 0;
+    playerPosition = 0;
+    string playerOnBoard, computerOnBoard;
+    playerOnBoard = "no";
+    computerOnBoard = "no";
+
+    cout <<endl;
+    cout <<"<------------------------------GAME STARTS! ----------------------------------->"<<endl;
     cout <<endl;
 
-    cout <<name<<", press 'r' to roll the dice! : ";
-    cin >>playerDiceRoll;
+    srand(time(NULL));
 
-    while (playerDiceRoll != 'r') {
-        cout <<"Invalid Input"<<endl;
+    while (playerPosition != 100 || computerPosition != 100) {
         cout <<name<<", press 'r' to roll the dice! : ";
         cin >>playerDiceRoll;
+
+        while (playerDiceRoll != 'r') {
+            cout <<"Invalid Input"<<endl;
+            cout <<name<<", press 'r' to roll the dice! : ";
+            cin >>playerDiceRoll;
+        }
+
+        playerDiceRollNumber = rand() % 6;
+        computerDiceRollNumber = rand() % 6;
+
+        cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
+        cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
+        cout <<endl;
+
+
+        if (playerPosition > 0 && computerPosition > 0) {
+            playerPosition += playerDiceRollNumber;
+            computerPosition += computerDiceRollNumber;
+
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer position on board is "<<computerPosition<<endl;
+            break;
+        }
+
+        cout <<endl;
+
+
+        if (playerDiceRollNumber == 1 && computerDiceRollNumber != 1) {
+            cout <<name<<", is now on board of game!"<<endl;
+            while (computerDiceRollNumber != 1) {
+            cout <<name<<", press 'r' to roll the dice! : ";
+            cin >>playerDiceRoll;
+
+            while (playerDiceRoll != 'r') {
+            cout <<"Invalid Input"<<endl;
+            cout <<name<<", press 'r' to roll the dice! : ";
+            cin >>playerDiceRoll;
+        }
+
+
+            playerDiceRollNumber = rand() % 6;
+            computerDiceRollNumber = rand() % 6;
+            cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
+            cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
+            cout <<endl;
+
+            playerPosition += playerDiceRollNumber;
+
+            if (playerPosition == 4) {
+                cout <<name<<" has climbed the ladder to the 25th Square"<<endl;
+                playerPosition += 21;
+            } else if (playerPosition == 13) {
+                cout <<name<<" has climbed the ladder to the 46th Square"<<endl;
+                playerPosition += 33;
+            } else if (playerPosition == 27) {
+                cout <<name<<" is bitten by a snake and moves down to 5th square"<<endl;
+                playerPosition -= 22;
+            } else if (playerPosition == 33) {
+                cout <<name<<" has climbed the ladder to the 46th Square"<<endl;
+                playerPosition += 16;
+            } else if (playerPosition == 40) {
+               cout <<name<<" is bitten by a snake and moves down to 3rd square"<<endl;
+               playerPosition -= 37;
+            } else if (playerPosition == 42) {
+                cout <<name<<" has climbed the ladder to the 69th Square"<<endl;
+                playerPosition += 21;
+            } else if (playerPosition == 43) {
+                cout <<name<<" is bitten by a snake and moves down to 18th square"<<endl;
+               playerPosition -= 25;
+            } else if (playerPosition == 50) {
+                cout <<name<<" has climbed the ladder to the 69th Square"<<endl;
+                playerPosition += 19;
+            } else if (playerPosition == 54) {
+                cout <<name<<" is bitten by a snake and moves down to 31st square"<<endl;
+               playerPosition -= 23;
+            } else if (playerPosition == 62) {
+                cout <<name<<" has climbed the ladder to the 81st Square"<<endl;
+                playerPosition += 19;
+            } else if (playerPosition == 66) {
+                cout <<name<<" is bitten by a snake and moves down to 45th square"<<endl;
+               playerPosition -= 21;
+            } else if (playerPosition == 74) {
+                cout <<name<<" has climbed the ladder to the 92nd Square"<<endl;
+                playerPosition += 18;
+            } else if (playerPosition == 76) {
+                cout <<name<<" is bitten by a snake and moves down to 58th square"<<endl;
+               playerPosition -= 18;
+            } else if (playerPosition == 89) {
+                cout <<name<<" is bitten by a snake and moves down to 53rd square"<<endl;
+               playerPosition -= 36;
+            } else if (playerPosition == 99) {
+                cout <<name<<" is bitten by a snake and moves down to 41st square"<<endl;
+               playerPosition -= 58;
+            }
+
+
+            cout <<name<<", current position on board is "<<playerPosition<<endl;
+            cout <<endl;
+
+            if (computerDiceRollNumber == 1) {
+                cout <<"Computer is now on board of game!"<<endl;
+                computerPosition += computerDiceRollNumber;
+                cout <<endl;
+                break;
+            }
+            }
+
+        } else if (playerDiceRollNumber != 1 && computerDiceRollNumber == 1) {
+            cout <<"Computer is now on board of game!"<<endl;
+            cout <<endl;
+            while (playerDiceRollNumber != 1) {
+            cout <<name<<", press 'r' to roll the dice! : ";
+            cin >>playerDiceRoll;
+
+            while (playerDiceRoll != 'r') {
+            cout <<"Invalid Input"<<endl;
+            cout <<name<<", press 'r' to roll the dice! : ";
+            cin >>playerDiceRoll;
+        }
+
+            playerDiceRollNumber = rand() % 6;
+            computerDiceRollNumber = rand() % 6;
+
+            cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
+            cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
+            cout <<endl;
+
+            computerPosition += computerDiceRollNumber;
+            if (computerPosition == 4) {
+                cout <<"Computer has climbed the ladder to the 25th Square"<<endl;
+                computerPosition += 21;
+            } else if (computerPosition == 13) {
+                cout <<"Computer has climbed the ladder to the 46th Square"<<endl;
+                computerPosition += 33;
+            } else if (computerPosition == 27) {
+                cout <<"Computer is bitten by a snake and moves down to 5th square"<<endl;
+                computerPosition -= 22;
+            } else if (computerPosition == 33) {
+                cout <<"Computer has climbed the ladder to the 46th Square"<<endl;
+                computerPosition += 16;
+            } else if (computerPosition == 40) {
+               cout <<"Computer is bitten by a snake and moves down to 3rd square"<<endl;
+               computerPosition -= 37;
+            } else if (computerPosition == 42) {
+                cout <<"Computer has climbed the ladder to the 69th Square"<<endl;
+                computerPosition += 21;
+            } else if (computerPosition == 43) {
+                cout <<"Computer is bitten by a snake and moves down to 18th square"<<endl;
+               computerPosition -= 25;
+            } else if (computerPosition == 50) {
+                cout <<"Computer has climbed the ladder to the 69th Square"<<endl;
+                computerPosition += 19;
+            } else if (computerPosition == 54) {
+                cout <<"Computer is bitten by a snake and moves down to 31st square"<<endl;
+               computerPosition -= 23;
+            } else if (computerPosition == 62) {
+                cout <<"Computer has climbed the ladder to the 81st Square"<<endl;
+                computerPosition += 19;
+            } else if (computerPosition == 66) {
+                cout <<"Computer is bitten by a snake and moves down to 45th square"<<endl;
+               computerPosition -= 21;
+            } else if (computerPosition == 74) {
+                cout <<"Computer has climbed the ladder to the 92nd Square"<<endl;
+                computerPosition += 18;
+            } else if (computerPosition == 76) {
+                cout <<"Computer is bitten by a snake and moves down to 58th square"<<endl;
+               computerPosition -= 18;
+            } else if (computerPosition == 89) {
+                cout <<"Computer is bitten by a snake and moves down to 53rd square"<<endl;
+               computerPosition -= 36;
+            } else if (computerPosition == 99) {
+                cout <<"Computer is bitten by a snake and moves down to 41st square"<<endl;
+               computerPosition -= 58;
+            }
+
+            cout <<"Computer current position on board is "<<computerPosition<<endl;
+            cout <<endl;
+            if (playerDiceRollNumber == 1) {
+                cout <<name<<" is now on board of game!"<<endl;
+                playerPosition += playerDiceRollNumber;
+                break;
+            }
+            }
+        } else if (playerDiceRollNumber == 1 && computerDiceRollNumber == 1) {
+            cout <<name<<" and Computer are now on board of game!"<<endl;
+            cout <<endl;
+
+            while (playerPosition != 100 || computerPosition != 100) {
+            cout <<name<<", press 'r' to roll the dice! : ";
+            cin >>playerDiceRoll;
+
+            while (playerDiceRoll != 'r') {
+            cout <<"Invalid Input"<<endl;
+            cout <<name<<", press 'r' to roll the dice! : ";
+            cin >>playerDiceRoll;
+        }
+
+            playerDiceRollNumber = rand() % 6;
+            computerDiceRollNumber = rand() % 6;
+
+            cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
+            cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
+            cout <<"This loop is iterating 3"<<endl;
+            cout <<endl;
+
+            playerPosition += playerDiceRollNumber;
+            computerPosition += computerDiceRollNumber;
+
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer position on board is "<<computerPosition<<endl;
+            }
+        }
+
+
+            /*cout <<name<<", press 'r' to roll the dice! : ";
+            cin >>playerDiceRoll;
+            playerDiceRollNumber = rand() % 6;
+            computerDiceRollNumber = rand() % 6;
+
+            cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
+            cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
+            cout <<endl;
+
+            playerPosition += playerDiceRollNumber;
+            computerPosition += computerDiceRollNumber;
+
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer position on board is "<<computerPosition<<endl;
+            */
+
     }
 
-    srand(time(NULL));
-    playerDiceRoll = rand() % 6;
-    computerDiceRoll = rand() % 6;
-    int computerPosition;
+    while (playerPosition != 100 || computerPosition != 100) {
 
-
-    while (playerDiceRoll != 1) {
-        computerDiceRoll = rand() % 6;
-
-        if (computerDiceRoll == 1) {
-        cout <<"Computer is now on the board of game"<<endl;
-        computerPosition = 1;
     }
-    }
-
-    if (playerDiceRoll == 1) {
-        cout <<name<<" is now on the board of game"<<endl;
-    }
-
 
     return 0;
 }
