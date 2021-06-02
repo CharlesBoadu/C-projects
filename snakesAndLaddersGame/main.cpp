@@ -86,6 +86,8 @@ int main()
 
     srand(time(NULL));
 
+    cout <<"NB: You need a roll of 1 to be on board of Game!"<<endl;
+    cout <<endl;
     while (playerPosition != 100 || computerPosition != 100) {
         cout <<name<<", press 'r' to roll the dice! : ";
         cin >>playerDiceRoll;
@@ -117,7 +119,7 @@ int main()
 
 
         if (playerDiceRollNumber == 1 && computerDiceRollNumber != 1) {
-            cout <<name<<", is now on board of game!"<<endl;
+            cout <<"With a roll of 1, "<<name<<", is now on board of game!"<<endl;
             while (computerDiceRollNumber != 1) {
             cout <<name<<", press 'r' to roll the dice! : ";
             cin >>playerDiceRoll;
@@ -138,49 +140,49 @@ int main()
             playerPosition += playerDiceRollNumber;
 
             if (playerPosition == 4) {
-                cout <<name<<" has climbed the ladder to the 25th Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 4th square to the 25th Square"<<endl;
                 playerPosition += 21;
             } else if (playerPosition == 13) {
-                cout <<name<<" has climbed the ladder to the 46th Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 13th square to the 46th Square"<<endl;
                 playerPosition += 33;
             } else if (playerPosition == 27) {
-                cout <<name<<" is bitten by a snake and moves down to 5th square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 27th square and moves down to 5th square"<<endl;
                 playerPosition -= 22;
             } else if (playerPosition == 33) {
-                cout <<name<<" has climbed the ladder to the 46th Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 33rd square to the 46th Square"<<endl;
                 playerPosition += 16;
             } else if (playerPosition == 40) {
-               cout <<name<<" is bitten by a snake and moves down to 3rd square"<<endl;
+               cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
                playerPosition -= 37;
             } else if (playerPosition == 42) {
-                cout <<name<<" has climbed the ladder to the 69th Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 42nd square to the 69th Square"<<endl;
                 playerPosition += 21;
             } else if (playerPosition == 43) {
-                cout <<name<<" is bitten by a snake and moves down to 18th square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
                playerPosition -= 25;
             } else if (playerPosition == 50) {
-                cout <<name<<" has climbed the ladder to the 69th Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 50th square to the 69th Square"<<endl;
                 playerPosition += 19;
             } else if (playerPosition == 54) {
-                cout <<name<<" is bitten by a snake and moves down to 31st square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
                playerPosition -= 23;
             } else if (playerPosition == 62) {
-                cout <<name<<" has climbed the ladder to the 81st Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 62nd square to the 81st Square"<<endl;
                 playerPosition += 19;
             } else if (playerPosition == 66) {
-                cout <<name<<" is bitten by a snake and moves down to 45th square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
                playerPosition -= 21;
             } else if (playerPosition == 74) {
-                cout <<name<<" has climbed the ladder to the 92nd Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 74th square to the 92nd Square"<<endl;
                 playerPosition += 18;
             } else if (playerPosition == 76) {
-                cout <<name<<" is bitten by a snake and moves down to 58th square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
                playerPosition -= 18;
             } else if (playerPosition == 89) {
-                cout <<name<<" is bitten by a snake and moves down to 53rd square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
                playerPosition -= 36;
             } else if (playerPosition == 99) {
-                cout <<name<<" is bitten by a snake and moves down to 41st square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
                playerPosition -= 58;
             }
 
@@ -189,7 +191,7 @@ int main()
             cout <<endl;
 
             if (computerDiceRollNumber == 1) {
-                cout <<"Computer is now on board of game!"<<endl;
+                cout <<"Computer is also now on board of game!"<<endl;
                 computerPosition += computerDiceRollNumber;
                 cout <<endl;
                 break;
@@ -197,7 +199,7 @@ int main()
             }
 
         } else if (playerDiceRollNumber != 1 && computerDiceRollNumber == 1) {
-            cout <<"Computer is now on board of game!"<<endl;
+            cout <<"With a roll of 1, Computer is now on board of game!"<<endl;
             cout <<endl;
             while (playerDiceRollNumber != 1) {
             cout <<name<<", press 'r' to roll the dice! : ";
@@ -218,62 +220,62 @@ int main()
 
             computerPosition += computerDiceRollNumber;
             if (computerPosition == 4) {
-                cout <<"Computer has climbed the ladder to the 25th Square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 4th square to the 25th Square"<<endl;
                 computerPosition += 21;
             } else if (computerPosition == 13) {
-                cout <<"Computer has climbed the ladder to the 46th Square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 13th square to the 46th Square"<<endl;
                 computerPosition += 33;
             } else if (computerPosition == 27) {
-                cout <<"Computer is bitten by a snake and moves down to 5th square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 27th square and moves down to 5th square"<<endl;
                 computerPosition -= 22;
             } else if (computerPosition == 33) {
-                cout <<"Computer has climbed the ladder to the 46th Square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 33rd square to the 49th Square"<<endl;
                 computerPosition += 16;
             } else if (computerPosition == 40) {
-               cout <<"Computer is bitten by a snake and moves down to 3rd square"<<endl;
+               cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
                computerPosition -= 37;
             } else if (computerPosition == 42) {
-                cout <<"Computer has climbed the ladder to the 69th Square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 42nd square to the 69th Square"<<endl;
                 computerPosition += 21;
             } else if (computerPosition == 43) {
-                cout <<"Computer is bitten by a snake and moves down to 18th square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
                computerPosition -= 25;
             } else if (computerPosition == 50) {
-                cout <<"Computer has climbed the ladder to the 69th Square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 50th square to the 69th Square"<<endl;
                 computerPosition += 19;
             } else if (computerPosition == 54) {
-                cout <<"Computer is bitten by a snake and moves down to 31st square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
                computerPosition -= 23;
             } else if (computerPosition == 62) {
-                cout <<"Computer has climbed the ladder to the 81st Square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 62nd square to the 81st Square"<<endl;
                 computerPosition += 19;
             } else if (computerPosition == 66) {
-                cout <<"Computer is bitten by a snake and moves down to 45th square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
                computerPosition -= 21;
             } else if (computerPosition == 74) {
-                cout <<"Computer has climbed the ladder to the 92nd Square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 74th square to the 92nd Square"<<endl;
                 computerPosition += 18;
             } else if (computerPosition == 76) {
-                cout <<"Computer is bitten by a snake and moves down to 58th square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
                computerPosition -= 18;
             } else if (computerPosition == 89) {
-                cout <<"Computer is bitten by a snake and moves down to 53rd square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
                computerPosition -= 36;
             } else if (computerPosition == 99) {
-                cout <<"Computer is bitten by a snake and moves down to 41st square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
                computerPosition -= 58;
             }
 
-            cout <<"Computer current position on board is "<<computerPosition<<endl;
+            cout <<"Computer's current position on board is "<<computerPosition<<endl;
             cout <<endl;
             if (playerDiceRollNumber == 1) {
-                cout <<name<<" is now on board of game!"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is also now on board of game!"<<endl;
                 playerPosition += playerDiceRollNumber;
                 break;
             }
             }
         } else if (playerDiceRollNumber == 1 && computerDiceRollNumber == 1) {
-            cout <<name<<" and Computer are now on board of game!"<<endl;
+            cout <<"With a roll of "<<playerDiceRollNumber<<"each, both "<<name<<" and Computer are now on board of game!"<<endl;
             cout <<endl;
 
             while (playerPosition != 100 || computerPosition != 100) {
@@ -291,37 +293,227 @@ int main()
 
             cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
             cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
-            cout <<"This loop is iterating 3"<<endl;
             cout <<endl;
 
             playerPosition += playerDiceRollNumber;
             computerPosition += computerDiceRollNumber;
 
-            cout <<name<<" position on board is "<<playerPosition<<endl;
-            cout <<"Computer position on board is "<<computerPosition<<endl;
+            if (computerPosition == 4) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 4th square to the 25th Square"<<endl;
+                computerPosition += 21;
+            } else if (playerPosition == 4) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 4th square to the 25th Square"<<endl;
+                playerPosition += 21;
+            } else if (computerPosition == 13) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 13th square to the 46th Square"<<endl;
+                computerPosition += 33;
+            } else if (playerPosition == 13) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 13th square to the 25th Square"<<endl;
+                playerPosition += 33;
+            } else if (computerPosition == 27) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 27th square and moves down to 5th square"<<endl;
+                computerPosition -= 22;
+            } else if (playerPosition == 27) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 27th square to the 25th Square"<<endl;
+                playerPosition -= 22;
+            } else if (computerPosition == 33) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 33rd square to the 46th Square"<<endl;
+                computerPosition += 16;
+            } else if (playerPosition == 33) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 33rd square to the 46th Square"<<endl;
+                playerPosition += 16;
+            } else if (computerPosition == 40) {
+               cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
+               computerPosition -= 37;
+            } else if (playerPosition == 40) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 40th square to the 46th Square"<<endl;
+                playerPosition -= 37;
+            } else if (computerPosition == 42) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 42nd square to the 69th Square"<<endl;
+                computerPosition += 21;
+            } else if (playerPosition == 42) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 42nd square to the 69th Square"<<endl;
+                playerPosition += 21;
+            } else if (computerPosition == 43) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
+               computerPosition -= 25;
+            } else if (playerPosition == 43) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
+               computerPosition -= 25;
+            } else if (computerPosition == 50) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 50th square to the 69th Square"<<endl;
+                computerPosition += 19;
+            } else if (playerPosition == 50) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 50th square to the 69th Square"<<endl;
+                playerPosition += 19;
+            } else if (computerPosition == 54) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
+               computerPosition -= 23;
+            } else if (playerPosition == 54) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
+               playerPosition -= 23;
+            } else if (computerPosition == 62) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 62nd square to the 81st Square"<<endl;
+                computerPosition += 19;
+            } else if (playerPosition == 62) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 62nd square to the 81st Square"<<endl;
+                playerPosition += 19;
+            } else if (computerPosition == 66) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
+               computerPosition -= 21;
+            } else if (playerPosition == 66) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
+               playerPosition -= 21;
+            } else if (computerPosition == 74) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 74th square to the 92nd Square"<<endl;
+                computerPosition += 18;
+            } else if (playerPosition == 74) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 74th square to the 92nd Square"<<endl;
+                playerPosition += 18;
+            } else if (computerPosition == 76) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
+               computerPosition -= 18;
+            } else if (playerPosition == 76) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
+               playerPosition -= 18;
+            } else if (computerPosition == 89) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
+               computerPosition -= 36;
+            } else if (playerPosition == 89) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
+               playerPosition -= 36;
+            } else if (computerPosition == 99) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
+               computerPosition -= 58;
+            } else if (playerPosition == 99) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
+               playerPosition -= 58;
             }
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
         }
 
-
-            /*cout <<name<<", press 'r' to roll the dice! : ";
-            cin >>playerDiceRoll;
-            playerDiceRollNumber = rand() % 6;
-            computerDiceRollNumber = rand() % 6;
-
-            cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
-            cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
-            cout <<endl;
-
-            playerPosition += playerDiceRollNumber;
-            computerPosition += computerDiceRollNumber;
-
-            cout <<name<<" position on board is "<<playerPosition<<endl;
-            cout <<"Computer position on board is "<<computerPosition<<endl;
-            */
-
+    }
     }
 
+
+    //Second end of game loop
     while (playerPosition != 100 || computerPosition != 100) {
+        cout <<name<<", press 'r' to roll the dice! : ";
+        cin >>playerDiceRoll;
+
+        while (playerDiceRoll != 'r') {
+            cout <<"Invalid Input"<<endl;
+            cout <<name<<", press 'r' to roll the dice! : ";
+            cin >>playerDiceRoll;
+        }
+
+        playerDiceRollNumber = rand() % 6;
+        computerDiceRollNumber = rand() % 6;
+
+        cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
+        cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
+        cout <<endl;
+
+        playerPosition += playerDiceRollNumber;
+        computerPosition += computerDiceRollNumber;
+
+        if (computerPosition == 4) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 4th square to the 25th Square"<<endl;
+                computerPosition += 21;
+            } else if (playerPosition == 4) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 4th square to the 25th Square"<<endl;
+                playerPosition += 21;
+            } else if (computerPosition == 13) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 13th square to the 46th Square"<<endl;
+                computerPosition += 33;
+            } else if (playerPosition == 13) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 13th square to the 25th Square"<<endl;
+                playerPosition += 33;
+            } else if (computerPosition == 27) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 27th square and moves down to 5th square"<<endl;
+                computerPosition -= 22;
+            } else if (playerPosition == 27) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 27th  square to the 25th Square"<<endl;
+                playerPosition -= 22;
+            } else if (computerPosition == 33) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 33rd square to the 46th Square"<<endl;
+                computerPosition += 16;
+            } else if (playerPosition == 33) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 33rd square to the 46th Square"<<endl;
+                playerPosition += 16;
+            } else if (computerPosition == 40) {
+               cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
+               computerPosition -= 37;
+            } else if (playerPosition == 40) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
+                playerPosition -= 37;
+            } else if (computerPosition == 42) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 42nd square to the 69th Square"<<endl;
+                computerPosition += 21;
+            } else if (playerPosition == 42) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 42nd square to the 69th Square"<<endl;
+                playerPosition += 21;
+            } else if (computerPosition == 43) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
+               computerPosition -= 25;
+            } else if (playerPosition == 43) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
+               computerPosition -= 25;
+            } else if (computerPosition == 50) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 50th square to the 69th Square"<<endl;
+                computerPosition += 19;
+            } else if (playerPosition == 50) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 50th square to the 69th Square"<<endl;
+                playerPosition += 19;
+            } else if (computerPosition == 54) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
+               computerPosition -= 23;
+            } else if (playerPosition == 54) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
+               playerPosition -= 23;
+            } else if (computerPosition == 62) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder to the 81st Square"<<endl;
+                computerPosition += 19;
+            } else if (playerPosition == 62) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 62nd square to the 81st Square"<<endl;
+                playerPosition += 19;
+            } else if (computerPosition == 66) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
+               computerPosition -= 21;
+            } else if (playerPosition == 66) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
+               playerPosition -= 21;
+            } else if (computerPosition == 74) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 74th square to the 92nd Square"<<endl;
+                computerPosition += 18;
+            } else if (playerPosition == 74) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 74th square to the 92nd Square"<<endl;
+                playerPosition += 18;
+            } else if (computerPosition == 76) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
+               computerPosition -= 18;
+            } else if (playerPosition == 76) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
+               playerPosition -= 18;
+            } else if (computerPosition == 89) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
+               computerPosition -= 36;
+            } else if (playerPosition == 89) {
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
+               playerPosition -= 36;
+            } else if (computerPosition == 99) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
+               computerPosition -= 58;
+            } else if (playerPosition == 99) {
+                cout <<"With a roll of "<<computerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
+               playerPosition -= 58;
+            }
+
+        cout <<name<<" current position on board is "<<playerPosition<<endl;
+        cout <<"Computer's current position on board is "<<computerPosition<<endl;
+        cout <<endl;
 
     }
 
