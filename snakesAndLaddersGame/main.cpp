@@ -184,6 +184,8 @@ int main()
             } else if (playerPosition == 99) {
                 cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
                playerPosition -= 58;
+            } else {
+                cout <<endl;
             }
 
 
@@ -264,6 +266,8 @@ int main()
             } else if (computerPosition == 99) {
                 cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
                computerPosition -= 58;
+            } else {
+                cout <<endl;
             }
 
             cout <<"Computer's current position on board is "<<computerPosition<<endl;
@@ -271,11 +275,14 @@ int main()
             if (playerDiceRollNumber == 1) {
                 cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is also now on board of game!"<<endl;
                 playerPosition += playerDiceRollNumber;
+                cout <<endl;
                 break;
             }
-            }
-        } else if (playerDiceRollNumber == 1 && computerDiceRollNumber == 1) {
-            cout <<"With a roll of "<<playerDiceRollNumber<<"each, both "<<name<<" and Computer are now on board of game!"<<endl;
+        }
+    }
+
+         else if (playerDiceRollNumber == 1 && computerDiceRollNumber == 1) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<" each, both "<<name<<" and Computer are now on board of game!"<<endl;
             cout <<endl;
 
             while (playerPosition != 100 || computerPosition != 100) {
@@ -295,6 +302,192 @@ int main()
             cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
             cout <<endl;
 
+
+            //Checking bounce back effect
+            if (playerPosition == 95 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+                playerPosition += 4;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 95 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+                computerPosition += 4;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 96 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 98th square"<<endl;
+                playerPosition += 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 96 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 98th square"<<endl;
+                computerPosition += 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 96 && playerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+                playerPosition += 3;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 96 && computerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+                computerPosition += 3;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 97 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back again to 97th square"<<endl;
+                playerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 97 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back again to 97th square"<<endl;
+                computerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 97 && playerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 98th square"<<endl;
+                playerPosition += 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 97 && computerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 98th square"<<endl;
+                computerPosition += 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 97 && playerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+                playerPosition += 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 97 && computerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+                computerPosition += 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 98 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 96th square"<<endl;
+                playerPosition -= 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 98 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 96th square"<<endl;
+                computerPosition -= 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 98 && playerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 97th square"<<endl;
+                playerPosition -= 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 98 && computerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 97th square"<<endl;
+                computerPosition -= 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 98 && playerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back again to 98th square"<<endl;
+                playerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 98 && computerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back again to 98th square"<<endl;
+                computerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 98 && playerDiceRollNumber == 3) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+                playerPosition += 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 98 && computerDiceRollNumber == 3) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+                computerPosition += 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 99 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 95th square"<<endl;
+                playerPosition -= 4;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 95th square"<<endl;
+                computerPosition -= 4;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 99 && playerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 96th square"<<endl;
+                playerPosition -= 3;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 96th square"<<endl;
+                computerPosition -= 3;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            }  else if (playerPosition == 99 && playerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 97th square"<<endl;
+                playerPosition -= 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 97th square"<<endl;
+                computerPosition -= 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 99 && playerDiceRollNumber == 3) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 98th square"<<endl;
+                playerPosition -= 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 3) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 98th square"<<endl;
+                computerPosition -= 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 99 && playerDiceRollNumber == 2) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to the same 99th square"<<endl;
+                playerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 2) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to the same 99th square"<<endl;
+                computerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else {
+                cout <<endl;
+            }
+
             playerPosition += playerDiceRollNumber;
             computerPosition += computerDiceRollNumber;
 
@@ -308,7 +501,7 @@ int main()
                 cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 13th square to the 46th Square"<<endl;
                 computerPosition += 33;
             } else if (playerPosition == 13) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 13th square to the 25th Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 13th square to the 46th Square"<<endl;
                 playerPosition += 33;
             } else if (computerPosition == 27) {
                 cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 27th square and moves down to 5th square"<<endl;
@@ -317,16 +510,16 @@ int main()
                 cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 27th square to the 25th Square"<<endl;
                 playerPosition -= 22;
             } else if (computerPosition == 33) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 33rd square to the 46th Square"<<endl;
+                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 33rd square to the 49th Square"<<endl;
                 computerPosition += 16;
             } else if (playerPosition == 33) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 33rd square to the 46th Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 33rd square to the 49th Square"<<endl;
                 playerPosition += 16;
             } else if (computerPosition == 40) {
                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
                computerPosition -= 37;
             } else if (playerPosition == 40) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 40th square to the 46th Square"<<endl;
+                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" s bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
                 playerPosition -= 37;
             } else if (computerPosition == 42) {
                 cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 42nd square to the 69th Square"<<endl;
@@ -388,14 +581,19 @@ int main()
             } else if (playerPosition == 99) {
                 cout <<"With a roll of "<<computerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
                playerPosition -= 58;
+            } else {
+                cout <<endl;
             }
-            cout <<name<<" position on board is "<<playerPosition<<endl;
-            cout <<"Computer's position on board is "<<computerPosition<<endl;
-            cout <<endl;
-        }
+
+
+        cout <<name<<" position on board is "<<playerPosition<<endl;
+        cout <<"Computer's position on board is "<<computerPosition<<endl;
+        cout <<endl;
 
     }
-    }
+}
+}
+
 
 
     //Second end of game loop
@@ -412,110 +610,483 @@ int main()
         playerDiceRollNumber = rand() % 6;
         computerDiceRollNumber = rand() % 6;
 
+        cout <<endl;
+
         cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
         cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
         cout <<endl;
+
+        //Checking bounce back effect
+        if (playerPosition == 95 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+                playerPosition += 4;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 95 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+                computerPosition += 4;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 96 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 98th square"<<endl;
+                playerPosition += 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 96 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 98th square"<<endl;
+                computerPosition += 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 96 && playerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+                playerPosition += 3;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 96 && computerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+                computerPosition += 3;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 97 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back again to 97th square"<<endl;
+                playerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 97 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back again to 97th square"<<endl;
+                computerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 97 && playerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 98th square"<<endl;
+                playerPosition += 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 97 && computerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 98th square"<<endl;
+                computerPosition += 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 97 && playerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+                playerPosition += 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 97 && computerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+                computerPosition += 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 98 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 96th square"<<endl;
+                playerPosition -= 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 98 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 96th square"<<endl;
+                computerPosition -= 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 98 && playerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 97th square"<<endl;
+                playerPosition -= 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 98 && computerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 97th square"<<endl;
+                computerPosition -= 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 98 && playerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back again to 98th square"<<endl;
+                playerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 98 && computerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back again to 98th square"<<endl;
+                computerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 98 && playerDiceRollNumber == 3) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+                playerPosition += 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 98 && computerDiceRollNumber == 3) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+                computerPosition += 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 99 && playerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 95th square"<<endl;
+                playerPosition -= 4;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 6) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 95th square"<<endl;
+                computerPosition -= 4;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 99 && playerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 96th square"<<endl;
+                playerPosition -= 3;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 5) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 96th square"<<endl;
+                computerPosition -= 3;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            }  else if (playerPosition == 99 && playerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 97th square"<<endl;
+                playerPosition -= 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 4) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 97th square"<<endl;
+                computerPosition -= 2;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 99 && playerDiceRollNumber == 3) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 98th square"<<endl;
+                playerPosition -= 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 3) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to 98th square"<<endl;
+                computerPosition -= 1;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (playerPosition == 99 && playerDiceRollNumber == 2) {
+                cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to the same 99th square"<<endl;
+                playerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else if (computerPosition == 99 && computerDiceRollNumber == 2) {
+                cout <<"Roll is more than the number to reach home and so Computer bounces back to the same 99th square"<<endl;
+                computerPosition += 0;
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
+                cout <<endl;
+            } else {
+                cout <<endl;
+            }
 
         playerPosition += playerDiceRollNumber;
         computerPosition += computerDiceRollNumber;
 
         if (computerPosition == 4) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 4th square to the 25th Square"<<endl;
-                computerPosition += 21;
-            } else if (playerPosition == 4) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 4th square to the 25th Square"<<endl;
-                playerPosition += 21;
-            } else if (computerPosition == 13) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 13th square to the 46th Square"<<endl;
-                computerPosition += 33;
-            } else if (playerPosition == 13) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 13th square to the 25th Square"<<endl;
-                playerPosition += 33;
-            } else if (computerPosition == 27) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 27th square and moves down to 5th square"<<endl;
-                computerPosition -= 22;
-            } else if (playerPosition == 27) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 27th  square to the 25th Square"<<endl;
-                playerPosition -= 22;
-            } else if (computerPosition == 33) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 33rd square to the 46th Square"<<endl;
-                computerPosition += 16;
-            } else if (playerPosition == 33) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 33rd square to the 46th Square"<<endl;
-                playerPosition += 16;
-            } else if (computerPosition == 40) {
-               cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
-               computerPosition -= 37;
-            } else if (playerPosition == 40) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
-                playerPosition -= 37;
-            } else if (computerPosition == 42) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 42nd square to the 69th Square"<<endl;
-                computerPosition += 21;
-            } else if (playerPosition == 42) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 42nd square to the 69th Square"<<endl;
-                playerPosition += 21;
-            } else if (computerPosition == 43) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
-               computerPosition -= 25;
-            } else if (playerPosition == 43) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
-               computerPosition -= 25;
-            } else if (computerPosition == 50) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 50th square to the 69th Square"<<endl;
-                computerPosition += 19;
-            } else if (playerPosition == 50) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 50th square to the 69th Square"<<endl;
-                playerPosition += 19;
-            } else if (computerPosition == 54) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
-               computerPosition -= 23;
-            } else if (playerPosition == 54) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
-               playerPosition -= 23;
-            } else if (computerPosition == 62) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder to the 81st Square"<<endl;
-                computerPosition += 19;
-            } else if (playerPosition == 62) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 62nd square to the 81st Square"<<endl;
-                playerPosition += 19;
-            } else if (computerPosition == 66) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
-               computerPosition -= 21;
-            } else if (playerPosition == 66) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
-               playerPosition -= 21;
-            } else if (computerPosition == 74) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 74th square to the 92nd Square"<<endl;
-                computerPosition += 18;
-            } else if (playerPosition == 74) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 74th square to the 92nd Square"<<endl;
-                playerPosition += 18;
-            } else if (computerPosition == 76) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
-               computerPosition -= 18;
-            } else if (playerPosition == 76) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
-               playerPosition -= 18;
-            } else if (computerPosition == 89) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
-               computerPosition -= 36;
-            } else if (playerPosition == 89) {
-                cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
-               playerPosition -= 36;
-            } else if (computerPosition == 99) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
-               computerPosition -= 58;
-            } else if (playerPosition == 99) {
-                cout <<"With a roll of "<<computerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
-               playerPosition -= 58;
-            }
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 4th square to the 25th Square"<<endl;
+            computerPosition += 21;
+        } else if (playerPosition == 4) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 4th square to the 25th Square"<<endl;
+            playerPosition += 21;
+        } else if (computerPosition == 13) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 13th square to the 46th Square"<<endl;
+            computerPosition += 33;
+        } else if (playerPosition == 13) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 13th square to the 46th Square"<<endl;
+            playerPosition += 33;
+        } else if (computerPosition == 27) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 27th square and moves down to 5th square"<<endl;
+            computerPosition -= 22;
+        } else if (playerPosition == 27) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 27th  square to the 25th Square"<<endl;
+            playerPosition -= 22;
+        } else if (computerPosition == 33) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 33rd square to the 46th Square"<<endl;
+            computerPosition += 16;
+        } else if (playerPosition == 33) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 33rd square to the 46th Square"<<endl;
+            playerPosition += 16;
+        } else if (computerPosition == 40) {
+           cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
+           computerPosition -= 37;
+        } else if (playerPosition == 40) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 40th square and moves down to 3rd square"<<endl;
+            playerPosition -= 37;
+        } else if (computerPosition == 42) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 42nd square to the 69th Square"<<endl;
+            computerPosition += 21;
+        } else if (playerPosition == 42) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 42nd square to the 69th Square"<<endl;
+            playerPosition += 21;
+        } else if (computerPosition == 43) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
+           computerPosition -= 25;
+        } else if (playerPosition == 43) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
+           computerPosition -= 25;
+        } else if (computerPosition == 50) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 50th square to the 69th Square"<<endl;
+            computerPosition += 19;
+        } else if (playerPosition == 50) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 50th square to the 69th Square"<<endl;
+            playerPosition += 19;
+        } else if (computerPosition == 54) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
+           computerPosition -= 23;
+        } else if (playerPosition == 54) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 54th square and moves down to 31st square"<<endl;
+           playerPosition -= 23;
+        } else if (computerPosition == 62) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 62nd square to the 81st Square"<<endl;
+            computerPosition += 19;
+        } else if (playerPosition == 62) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 62nd square to the 81st Square"<<endl;
+            playerPosition += 19;
+        } else if (computerPosition == 66) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
+           computerPosition -= 21;
+        } else if (playerPosition == 66) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 66th square and moves down to 45th square"<<endl;
+           playerPosition -= 21;
+        } else if (computerPosition == 74) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer has climbed the ladder from the 74th square to the 92nd Square"<<endl;
+            computerPosition += 18;
+        } else if (playerPosition == 74) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" has climbed the ladder from the 74th square to the 92nd Square"<<endl;
+            playerPosition += 18;
+        } else if (computerPosition == 76) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
+           computerPosition -= 18;
+        } else if (playerPosition == 76) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 76th square and moves down to 58th square"<<endl;
+           playerPosition -= 18;
+        } else if (computerPosition == 89) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
+           computerPosition -= 36;
+        } else if (playerPosition == 89) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 89th square and moves down to 53rd square"<<endl;
+           playerPosition -= 36;
+        } else if (computerPosition == 99) {
+            cout <<"With a roll of "<<computerDiceRollNumber<<", Computer is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
+           computerPosition -= 58;
+        } else if (playerPosition == 99) {
+            cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
+           playerPosition -= 58;
+        }
 
+
+        //Checking the bounce back effect
+        if (playerPosition == 95 && playerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+            playerPosition += 4;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 95 && computerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+            computerPosition += 4;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 96 && playerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 98th square"<<endl;
+            playerPosition += 2;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 96 && computerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 98th square"<<endl;
+            computerPosition += 2;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 96 && playerDiceRollNumber == 5) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+            playerPosition += 3;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 96 && computerDiceRollNumber == 5) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+            computerPosition += 3;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 97 && playerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back again to 97th square"<<endl;
+            playerPosition += 0;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 97 && computerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back again to 97th square"<<endl;
+            computerPosition += 0;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 97 && playerDiceRollNumber == 5) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 98th square"<<endl;
+            playerPosition += 1;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 97 && computerDiceRollNumber == 5) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 98th square"<<endl;
+            computerPosition += 1;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 97 && playerDiceRollNumber == 4) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+            playerPosition += 2;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 97 && computerDiceRollNumber == 4) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+            computerPosition += 2;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 98 && playerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 96th square"<<endl;
+            playerPosition -= 2;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 98 && computerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 96th square"<<endl;
+            computerPosition -= 2;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 98 && playerDiceRollNumber == 5) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 97th square"<<endl;
+            playerPosition -= 1;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 98 && computerDiceRollNumber == 5) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 97th square"<<endl;
+            computerPosition -= 1;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 98 && playerDiceRollNumber == 4) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back again to 98th square"<<endl;
+            playerPosition += 0;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 98 && computerDiceRollNumber == 4) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back again to 98th square"<<endl;
+            computerPosition += 0;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 98 && playerDiceRollNumber == 3) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 99th square"<<endl;
+            playerPosition += 1;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 98 && computerDiceRollNumber == 3) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 99th square"<<endl;
+            computerPosition += 1;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 99 && playerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 95th square"<<endl;
+            playerPosition -= 4;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 99 && computerDiceRollNumber == 6) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 95th square"<<endl;
+            computerPosition -= 4;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 99 && playerDiceRollNumber == 5) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 96th square"<<endl;
+            playerPosition -= 3;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 99 && computerDiceRollNumber == 5) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 96th square"<<endl;
+            computerPosition -= 3;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        }  else if (playerPosition == 99 && playerDiceRollNumber == 4) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 97th square"<<endl;
+            playerPosition -= 2;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 99 && computerDiceRollNumber == 4) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 97th square"<<endl;
+            computerPosition -= 2;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 99 && playerDiceRollNumber == 3) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to 98th square"<<endl;
+            playerPosition -= 1;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 99 && computerDiceRollNumber == 3) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to 98th square"<<endl;
+            computerPosition -= 1;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (playerPosition == 99 && playerDiceRollNumber == 2) {
+            cout <<"Roll is more than the number to reach home and so "<<name<<" bounces back to the same 99th square"<<endl;
+            playerPosition += 0;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        } else if (computerPosition == 99 && computerDiceRollNumber == 2) {
+            cout <<"Roll is more than the number to reach home and so Computer bounces back to the same 99th square"<<endl;
+            computerPosition += 0;
+            cout <<name<<" position on board is "<<playerPosition<<endl;
+            cout <<"Computer's position on board is "<<computerPosition<<endl;
+            cout <<endl;
+        }
+
+        cout <<endl;
         cout <<name<<" current position on board is "<<playerPosition<<endl;
         cout <<"Computer's current position on board is "<<computerPosition<<endl;
         cout <<endl;
 
-    }
+}
+
 
     return 0;
 }
