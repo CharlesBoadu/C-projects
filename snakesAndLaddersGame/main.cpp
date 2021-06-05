@@ -74,6 +74,8 @@ int main()
 
     char playerDiceRoll;
     int computerPosition, playerPosition, playerDiceRollNumber, computerDiceRollNumber;
+    bool playerIsWinner = false;
+    bool computerIsWinner = false;
     computerPosition = 0;
     playerPosition = 0;
     string playerOnBoard, computerOnBoard;
@@ -201,7 +203,7 @@ int main()
                 cout <<endl;
                 break;
             }
-            }
+        }
 
         } else if (playerDiceRollNumber != 1 && computerDiceRollNumber == 1) {
             cout <<"With a roll of 1, Computer is now on board of game!"<<endl;
@@ -282,9 +284,8 @@ int main()
                 break;
             }
         }
-    }
 
-         else if (playerDiceRollNumber == 1 && computerDiceRollNumber == 1) {
+         } else if (playerDiceRollNumber == 1 && computerDiceRollNumber == 1) {
             cout <<"With a roll of "<<playerDiceRollNumber<<" each, both "<<name<<" and Computer are now on board of game!"<<endl;
             cout <<endl;
 
@@ -584,6 +585,14 @@ int main()
             } else if (playerPosition == 99) {
                 cout <<"With a roll of "<<computerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 99th square and moves down to 41st square"<<endl;
                playerPosition -= 58;
+            } else if (playerPosition == 100) {
+                cout <<"Congratulations!"<<name<<" has reached home!"<<endl;
+                playerIsWinner = true;
+                break;
+            } else if (computerPosition == 100) {
+                cout <<"Congratulations! Computer has reached home!"<<endl;
+                computerIsWinner = true;
+                break;
             } else {
                 cout <<endl;
             }
@@ -600,6 +609,13 @@ int main()
 
     //Second end of game loop
     while (playerPosition != 100 || computerPosition != 100) {
+        if (playerIsWinner) {
+            break;
+        } else if (computerIsWinner) {
+            break;
+        } else {
+            cout <<endl;
+        }
         cout <<name<<", press 'r' to roll the dice! : ";
         cin >>playerDiceRoll;
 
@@ -829,6 +845,18 @@ int main()
             cout <<name<<" position on board is "<<playerPosition<<endl;
             cout <<"Computer's position on board is "<<computerPosition<<endl;
             cout <<endl;
+        } else if (playerPosition == 100) {
+            cout <<name<<" current position on board is "<<playerPosition<<endl;
+            cout <<"Computer's current position on board is "<<computerPosition<<endl;
+            cout <<endl;
+            cout <<"Congratulations!"<<name<<" has reached home!"<<endl;
+            break;
+        } else if (computerPosition == 100) {
+            cout <<name<<" current position on board is "<<playerPosition<<endl;
+            cout <<"Computer's current position on board is "<<computerPosition<<endl;
+            cout <<endl;
+            cout <<"Congratulations! Computer has reached home!"<<endl;
+            break;
         } else {
             computerPosition += computerDiceRollNumber;
             playerPosition += playerDiceRollNumber;
@@ -1046,6 +1074,18 @@ int main()
             cout <<name<<" current position on board is "<<playerPosition<<endl;
             cout <<"Computer's current position on board is "<<computerPosition<<endl;
             cout <<endl;
+        } else if (playerPosition == 100) {
+            cout <<name<<" current position on board is "<<playerPosition<<endl;
+            cout <<"Computer's current position on board is "<<computerPosition<<endl;
+            cout <<endl;
+            cout <<"Congratulations!"<<name<<"has reached home!"<<endl;
+            break;
+        } else if (computerPosition == 100) {
+            cout <<name<<" current position on board is "<<playerPosition<<endl;
+            cout <<"Computer's current position on board is "<<computerPosition<<endl;
+            cout <<endl;
+            cout <<"Congratulations! Computer has reached home!"<<endl;
+            break;
         } else {
             cout <<endl;
             cout <<name<<" current position on board is "<<playerPosition<<endl;
@@ -1056,5 +1096,10 @@ int main()
 
 }
 
+    if (playerPosition == 100) {
+        cout <<"Game Over!"<<name<<" is the winner!"<<endl;
+    } else {
+        cout <<"Game Over! Computer is the winner!"<<endl;
+    }
     return 0;
 }
