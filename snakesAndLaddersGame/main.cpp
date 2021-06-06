@@ -304,7 +304,6 @@ int main()
 
             cout <<name<<" rolled "<<playerDiceRollNumber<<endl;
             cout <<"Computer rolled "<<computerDiceRollNumber<<endl;
-            cout <<endl;
 
 
             //Checking bounce back effect
@@ -594,13 +593,13 @@ int main()
                 computerIsWinner = true;
                 break;
             } else {
+                cout <<name<<" position on board is "<<playerPosition<<endl;
+                cout <<"Computer's position on board is "<<computerPosition<<endl;
                 cout <<endl;
             }
 
 
-        cout <<name<<" position on board is "<<playerPosition<<endl;
-        cout <<"Computer's position on board is "<<computerPosition<<endl;
-        cout <<endl;
+
 
     }
 }
@@ -957,7 +956,7 @@ int main()
             cout <<endl;
         } else if (playerPosition == 43) {
             cout <<"With a roll of "<<playerDiceRollNumber<<", "<<name<<" is bitten by a snake on the 43rd square and moves down to 18th square"<<endl;
-           computerPosition -= 25;
+           playerPosition -= 25;
            cout <<endl;
            cout <<name<<" current position on board is "<<playerPosition<<endl;
             cout <<"Computer's current position on board is "<<computerPosition<<endl;
