@@ -1,4 +1,5 @@
 # depslib dependency file v1.0
-1623778908 source:e:\learning c++\cgpacalculator\main.cpp
+1623888182 source:e:\learning c++\cgpacalculator\main.cpp
 	<iostream>
+	<algorithm>
 

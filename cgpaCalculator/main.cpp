@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -7,14 +8,14 @@ int main()
     string grade, confirmation, courseCode, name, semester;
     string courseList[15];
     int creditHourList[15];
-    int numberOfCourses, creditHours, creditHour, level;
-    float creditHour100FirstSem, gradePoint100FirstSem, creditHour100SecondSem, gradePoint100SecondSem;
-    float gradePoint200FirstSem, creditHour200FirstSem, gradePoint200SecondSem, creditHour200SecondSem;
-    float gradePoint300FirstSem, creditHour300FirstSem, gradePoint300SecondSem, creditHour300SecondSem;
-    float gradePoint400FirstSem, creditHour400FirstSem;
-    float totalCreditHours, totalGradePoint;
-    float gp, cgpa;
+    float numberOfCourses, creditHours, creditHour, level, yearLevel, semesterNumber, gradePoint, semCreditHours;
+    yearLevel = 100;
+    float gp, cgpa, totalGradePoint, totalCreditHours;
+    totalGradePoint = 0;
+    totalCreditHours = 0;
     gp = 0.0;
+
+
     cout <<"---------------------UNIVERSITY OF CAPE COAST CGPA Calculator-----------------------"<<endl;
 
     cout <<endl;
@@ -28,11 +29,27 @@ int main()
 
     cout << "Enter the number of courses you took for the semester: ";
     cin >>numberOfCourses;
+    while(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout <<"Invalid Response. Input must be an integer!"<<endl;
+        cout <<endl;
+        cout << "Enter the number of courses you took for the semester: ";
+        cin >>numberOfCourses;
+    }
 
     cout <<endl;
 
     cout << "Enter the total credit hours for all the courses: ";
     cin >>creditHours;
+    while(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout <<"Invalid Response. Input must be an integer!"<<endl;
+        cout <<endl;
+        cout << "Enter the total credit hours for all the courses: ";
+        cin >>creditHours;
+    }
 
     cout <<endl;
 
@@ -41,15 +58,26 @@ int main()
         cout <<"Enter course code: ";
         cin>>courseCode;
         courseList[i] = courseCode;
-
         cout <<"Enter the credit hour for that course: ";
         cin >>creditHour;
+
+        while(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout <<"Invalid Response. Input must be an integer!"<<endl;
+        cout <<endl;
+        cout <<"Enter the credit hour for that course: ";
+        cin >>creditHour;
+        }
+
         creditHourList[i] = creditHour;
         cout <<endl;
     }
 
     cout <<"These are the courses you took last semester with their respective credit hours: "<<endl;
     cout <<endl;
+    cout <<"Courses"<<"             "<<"Credit Hours"<<endl;
+
 
     for (int i = 1; i < numberOfCourses + 1; i++) {
         cout <<courseList[i]<<"                "<<creditHourList[i];
@@ -58,8 +86,16 @@ int main()
 
     cout <<endl;
     for (int i = 1; i < numberOfCourses + 1; i++) {
-        cout <<"Grade for "<<courseList[i]<<": ";
+        cout <<"Enter grade for "<<courseList[i]<<": ";
         cin >>grade;
+
+         while (grade != "A" && grade != "B+" && grade != "B" && grade != "C+" && grade != "C" && grade != "D+" && grade != "D" && grade != "E") {
+            cout <<"Invalid Input"<<endl;
+            cout <<endl;
+            cout <<"Enter grade for "<<courseList[i]<<": ";
+            cin >>grade;
+        }
+
         cout <<endl;
 
         if (grade == "A") {
@@ -84,176 +120,362 @@ int main()
     cout <<endl;
     cout <<"Type 'yes' if this your first semester as a level 100 and 'no' if otherwise: ";
     cin >>confirmation;
+    for_each (confirmation.begin(), confirmation.end(), [](char & c){
+               c = tolower(c);
+            });
 
+    cout <<confirmation;
     cout <<endl;
 
     if (confirmation == "yes") {
         cout <<"Your CGPA is "<<gp / creditHours<<endl;
     } else {
+        cout <<endl;
         cout <<"Which level are you in currently. eg. 100, 200, 300, etc...: ";
         cin >>level;
+        while(cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout <<"Invalid Response. Input must be an integer!"<<endl;
+        cout <<endl;
+        cout <<"Which level are you in currently. eg. 100, 200, 300, etc...: ";
+        cin >>level;
+        }
+
         cout <<"Enter the semester eg. One or two: ";
         cin >>semester;
+        for_each (semester.begin(), semester.end(), [](char & c){
+               c = tolower(c);
+            });
 
+        while (semester != "one" && semester != "two") {
+            cout <<"Invalid Input!"<<endl;
+            cout <<"Enter the semester eg. One or two: ";
+            cin >>semester;
+            for_each (semester.begin(), semester.end(), [](char & c){
+               c = tolower(c);
+            });
+        }
+    }
+
+    cout <<endl;
     if (level == 100 && semester == "two") {
-        cout <<"Enter the total Grade Point (GP) for level 100 first semester: ";
-        cin >>gradePoint100FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour100FirstSem;
+        for (int i = 0; i < 1; i++) {
+            yearLevel = 100;
+            totalGradePoint = 0;
+            semesterNumber = 1;
 
-        totalGradePoint = gradePoint100FirstSem + gp;
-        totalCreditHours = creditHour100FirstSem + creditHours;
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+            while(cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout <<"Invalid Response. Input must be an integer or a double!"<<endl;
+                cout <<endl;
+                cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+                cin >>gradePoint;
+            }
+             totalGradePoint += gradePoint;
+
+            cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>semCreditHours;
+            while(cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout <<"Invalid Response. Input must be an integer or a double!"<<endl;
+                cout <<endl;
+                cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+                cin >>semCreditHours;
+            }
+
+            totalCreditHours += semCreditHours;
+
+                cout<<endl;
+            }
+
+        totalGradePoint += gp;
+        totalCreditHours += creditHours;
+
         cgpa = totalGradePoint / totalCreditHours;
-    } else if (level == 200 && semester == "one") {
-        cout <<"Enter the total Grade Point (GP) for level 100 first semester: ";
-        cin >>gradePoint100FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour100FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 100 second semester: ";
-        cin >>gradePoint100SecondSem;
-        cout <<"Enter the total credit hour for second semester: ";
-        cin >>creditHour100SecondSem;
 
-        totalGradePoint = gradePoint100FirstSem + gradePoint100SecondSem + gp;
-        totalCreditHours = creditHour100FirstSem + creditHour100SecondSem + creditHours;
+    } else if (level == 200 && semester == "one") {
+        cout <<endl;
+        for (int i = 1; i < 3; i++) {
+            if (i % 2 == 0) {
+                semesterNumber = 2;
+            } else {
+                semesterNumber = 1;
+            }
+
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+             while(cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout <<"Invalid Response. Input must be an integer or a double!"<<endl;
+                cout <<endl;
+                cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+                cin >>gradePoint;
+             }
+                totalGradePoint += gradePoint;
+
+                cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+                cin >>semCreditHours;
+                while(cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cout <<"Invalid Response. Input must be an integer or a double!"<<endl;
+                    cout <<endl;
+                    cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+                    cin >>semCreditHours;
+                }
+
+                totalCreditHours += semCreditHours;
+
+                cout<<endl;
+             }
+
+
+
+        totalGradePoint += gp;
+        totalCreditHours += creditHours;
 
         cgpa = totalGradePoint / totalCreditHours;
 
     } else if (level == 200 && semester == "two") {
-        cout <<"Enter the total Grade Point (GP) for level 100 first semester: ";
-        cin >>gradePoint100FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour100FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 100 second semester: ";
-        cin >>gradePoint100SecondSem;
-        cout <<"Enter the total credit hour for second semester: ";
-        cin >>creditHour100SecondSem;
-        cout <<"Enter the total Grade Point (GP) for level 200 first semester: ";
-        cin >>gradePoint200FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour200FirstSem;
+        for (int i = 1; i < 4; i++) {
+            if (i % 2 == 0) {
+                semesterNumber = 2;
+            } else {
+                semesterNumber = 1;
+            }
 
-        totalGradePoint = gradePoint100FirstSem + gradePoint100SecondSem + gradePoint200FirstSem + gp;
-        totalCreditHours = creditHour100FirstSem + creditHour100SecondSem + creditHour200FirstSem + creditHours;
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+            while(cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout <<"Invalid Response. Input must be an integer!"<<endl;
+            cout <<endl;
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+            }
+
+            totalGradePoint += gradePoint;
+
+            while(cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout <<"Invalid Response. Input must be an integer!"<<endl;
+            cout <<endl;
+            cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>semCreditHours;
+            }
+
+            totalCreditHours += semCreditHours;
+
+            cout<<endl;
+             }
+
+            if (semesterNumber == 2) {
+                yearLevel += 100;
+            }
+
+        totalGradePoint += gp;
+        totalCreditHours += creditHours;
 
         cgpa = totalGradePoint / totalCreditHours;
 
     } else if (level == 300 && semester == "one") {
-        cout <<"Enter the total Grade Point (GP) for level 100 first semester: ";
-        cin >>gradePoint100FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour100FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 100 second semester: ";
-        cin >>gradePoint100SecondSem;
-        cout <<"Enter the total credit hour for second semester: ";
-        cin >>creditHour100SecondSem;
-        cout <<"Enter the total Grade Point (GP) for level 200 first semester: ";
-        cin >>gradePoint200FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour200FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 200 second semester: ";
-        cin >>gradePoint200SecondSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour200SecondSem;
+        for (int i = 1; i < 5; i++) {
+            if (i % 2 == 0) {
+                semesterNumber = 2;
+            } else {
+                semesterNumber = 1;
+            }
 
-        totalGradePoint = gradePoint100FirstSem + gradePoint100SecondSem + gradePoint200FirstSem + gradePoint200SecondSem + gp;
-        totalCreditHours = creditHour100FirstSem + creditHour100SecondSem + creditHour200FirstSem + creditHour200SecondSem + creditHours;
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+            while(cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout <<"Invalid Response. Input must be an integer!"<<endl;
+            cout <<endl;
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+            }
+
+            totalGradePoint += gradePoint;
+
+            cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>semCreditHours;
+            while(cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout <<"Invalid Response. Input must be an integer!"<<endl;
+            cout <<endl;
+            cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>semCreditHours;
+            }
+
+            totalCreditHours += semCreditHours;
+
+            cout<<endl;
+             }
+
+            if (semesterNumber == 2) {
+                yearLevel += 100;
+            }
+
+        totalGradePoint += gp;
+        totalCreditHours += creditHours;
 
         cgpa = totalGradePoint / totalCreditHours;
+
     } else if (level == 300 && semester == "two") {
-        cout <<"Enter the total Grade Point (GP) for level 100 first semester: ";
-        cin >>gradePoint100FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour100FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 100 second semester: ";
-        cin >>gradePoint100SecondSem;
-        cout <<"Enter the total credit hour for second semester: ";
-        cin >>creditHour100SecondSem;
-        cout <<"Enter the total Grade Point (GP) for level 200 first semester: ";
-        cin >>gradePoint200FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour200FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 200 second semester: ";
-        cin >>gradePoint200SecondSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour200SecondSem;
-        cout <<"Enter the total Grade Point (GP) for level 300 first semester: ";
-        cin >>gradePoint300FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour300FirstSem;
+        for (int i = 1; i < 6; i++) {
+            if (i % 2 == 0) {
+                semesterNumber = 2;
+            } else {
+                semesterNumber = 1;
+            }
 
-        totalGradePoint = gradePoint100FirstSem + gradePoint100SecondSem + gradePoint200FirstSem + gradePoint200SecondSem + gradePoint300FirstSem + gp;
-        totalCreditHours = creditHour100FirstSem + creditHour100SecondSem + creditHour200FirstSem + creditHour200SecondSem + creditHour300FirstSem + creditHours;
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+            while(cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout <<"Invalid Response. Input must be an integer!"<<endl;
+                cout <<endl;
+                cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+                cin >>gradePoint;
+            }
+
+            totalGradePoint += gradePoint;
+
+            cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>semCreditHours;
+            while(cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout <<"Invalid Response. Input must be an integer!"<<endl;
+                cout <<endl;
+                cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+                cin >>semCreditHours;
+            }
+
+            totalCreditHours += semCreditHours;
+
+            cout<<endl;
+
+            if (semesterNumber == 2) {
+                yearLevel += 100;
+            }
+
+        }
+
+        totalGradePoint += gp;
+        totalCreditHours += creditHours;
 
         cgpa = totalGradePoint / totalCreditHours;
-    } else if (level == 400 && semester == "one") {
-        cout <<"Enter the total Grade Point (GP) for level 100 first semester: ";
-        cin >>gradePoint100FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour100FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 100 second semester: ";
-        cin >>gradePoint100SecondSem;
-        cout <<"Enter the total credit hour for second semester: ";
-        cin >>creditHour100SecondSem;
-        cout <<"Enter the total Grade Point (GP) for level 200 first semester: ";
-        cin >>gradePoint200FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour200FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 200 second semester: ";
-        cin >>gradePoint200SecondSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour200SecondSem;
-        cout <<"Enter the total Grade Point (GP) for level 300 first semester: ";
-        cin >>gradePoint300FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour300FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 300 second semester: ";
-        cin >>gradePoint300SecondSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour300SecondSem;
 
-        totalGradePoint = gradePoint100FirstSem + gradePoint100SecondSem + gradePoint200FirstSem + gradePoint200SecondSem + gradePoint300FirstSem + gradePoint300SecondSem + gp;
-        totalCreditHours = creditHour100FirstSem + creditHour100SecondSem + creditHour200FirstSem + creditHour200SecondSem + creditHour300FirstSem + creditHour300SecondSem + creditHours;
+    } else if (level == 400 && semester == "one") {
+        for (int i = 1; i < 7; i++) {
+            if (i % 2 == 0) {
+                semesterNumber = 2;
+            } else {
+                semesterNumber = 1;
+            }
+
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+            while(cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout <<"Invalid Response. Input must be an integer!"<<endl;
+            cout <<endl;
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+            }
+
+            totalGradePoint += gradePoint;
+
+            cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>semCreditHours;
+            while(cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout <<"Invalid Response. Input must be an integer!"<<endl;
+            cout <<endl;
+            cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>semCreditHours;
+            }
+
+            totalCreditHours += semCreditHours;
+
+            cout<<endl;
+             }
+
+             if (semesterNumber == 2) {
+                yearLevel += 100;
+            }
+
+
+        totalGradePoint += gp;
+        totalCreditHours += creditHours;
 
         cgpa = totalGradePoint / totalCreditHours;
 
     } else if (level == 400 && semester == "two") {
-        cout <<"Enter the total Grade Point (GP) for level 100 first semester: ";
-        cin >>gradePoint100FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour100FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 100 second semester: ";
-        cin >>gradePoint100SecondSem;
-        cout <<"Enter the total credit hour for second semester: ";
-        cin >>creditHour100SecondSem;
-        cout <<"Enter the total Grade Point (GP) for level 200 first semester: ";
-        cin >>gradePoint200FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour200FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 200 second semester: ";
-        cin >>gradePoint200SecondSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour200SecondSem;
-        cout <<"Enter the total Grade Point (GP) for level 300 first semester: ";
-        cin >>gradePoint300FirstSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour300FirstSem;
-        cout <<"Enter the total Grade Point (GP) for level 300 second semester: ";
-        cin >>gradePoint300SecondSem;
-        cout <<"Enter the total credit hour for first semester: ";
-        cin >>creditHour300SecondSem;
-        cout <<"Enter the total Grade Point (GP) for level 400 first semester: ";
-        cin >>gradePoint400FirstSem;
+        for (int i = 1; i < 8; i++) {
+            if (i % 2 == 0) {
+                semesterNumber = 2;
+            } else {
+                semesterNumber = 1;
+            }
 
-        totalGradePoint = gradePoint100FirstSem + gradePoint100SecondSem + gradePoint200FirstSem + gradePoint200SecondSem + gradePoint300FirstSem + gradePoint300SecondSem + gradePoint400FirstSem + gp;
-        totalCreditHours = creditHour100FirstSem + creditHour100SecondSem + creditHour200FirstSem + creditHour200SecondSem + creditHour300FirstSem + creditHour300SecondSem + creditHour400FirstSem + creditHours;
+            cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>gradePoint;
+            while(cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout <<"Invalid Response. Input must be an integer!"<<endl;
+                cout <<endl;
+                cout <<"Enter the total Grade Point (GP) for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+                cin >>gradePoint;
+            }
+
+            totalGradePoint += gradePoint;
+
+            cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+            cin >>semCreditHours;
+            while(cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout <<"Invalid Response. Input must be an integer!"<<endl;
+                cout <<endl;
+                cout <<"Enter the total Credit Hours for level "<<yearLevel<<" semester "<<semesterNumber<<": ";
+                cin >>semCreditHours;
+            }
+                totalCreditHours += semCreditHours;
+
+                cout<<endl;
+            }
+
+            if (semesterNumber == 2) {
+                yearLevel += 100;
+            }
+
+        totalGradePoint += gp;
+        totalCreditHours += creditHours;
 
         cgpa = totalGradePoint / totalCreditHours;
     }
 
 
-        cout <<"Your CGPA is "<<cgpa;
-    }
+
+    cout<<endl;
+    cout <<name<<", your current CGPA is "<<cgpa;
 
     return 0;
 }
