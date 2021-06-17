@@ -27,7 +27,7 @@ int main()
 
     cout <<endl;
 
-    cout << "Enter the number of courses you took for the semester: ";
+    cout << "Enter the number of courses you took this semester: ";
     cin >>numberOfCourses;
     while(cin.fail()) {
         cin.clear();
@@ -58,7 +58,7 @@ int main()
         cout <<"Enter course code: ";
         cin>>courseCode;
         courseList[i] = courseCode;
-        cout <<"Enter the credit hour for that course: ";
+        cout <<"Enter the credit hours for that course: ";
         cin >>creditHour;
 
         while(cin.fail()) {
@@ -476,6 +476,25 @@ int main()
 
     cout<<endl;
     cout <<name<<", your current CGPA is "<<cgpa;
+
+    cout <<endl;
+    //Calculating the class
+    if (cgpa >= 3.6 && cgpa <= 4.0) {
+        cout <<"Your Class Designation is 1st class"<<endl;
+    } else if (cgpa >= 3.0 && cgpa <= 3.5) {
+        cout <<"Your Class Designation is 2nd Class [Upper Division]"<<endl;
+    } else if (cgpa >= 2.5 && cgpa <= 2.9) {
+        cout <<"Your Class Designation is 2nd Class [Lower Division]"<<endl;
+    } else if (cgpa >= 2.0 && cgpa <= 2.4) {
+        cout <<"Your Class Designation is 3rd Class Division"<<endl;
+    } else {
+        cout <<"Your Class Designation is Pass"<<endl;
+    }
+
+
+    cout <<endl;
+    cout <<"It's been great Calculating your CGPA and Class for you! Bye!";
+
 
     return 0;
 }
