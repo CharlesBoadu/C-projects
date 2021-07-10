@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1620860119 source:e:\learning c++\building question and answers game\main.cpp
-	<iostream>
-	<stdlib.h>
-	<time.h>
-
