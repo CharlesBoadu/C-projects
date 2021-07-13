@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1626211160 source:e:\learning c++\building  a guessing game\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
