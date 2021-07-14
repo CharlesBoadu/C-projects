@@ -1,0 +1,1 @@
+This project involves the development of a simple rock-paper-scissor Game using c++. Additional features included in this game is that the user can opt to play more than a single round and the winner is declared at the end of every round. Also, the overall winner of the total number of rounds is declared when the user opt to end game after a round is completed. Enjoy!
